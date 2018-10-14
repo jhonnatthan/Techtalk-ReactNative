@@ -17,11 +17,11 @@ export default class HomePage extends Component {
         this.setState({todos, loading: false});
     }
 
-    async addTodo(text) {
+    async addTodo(name) {
         this.setState({loading: true});
         let { todos } = this.state;
 
-        const created = await TodoApi.addTodo({name: text});
+        const created = await TodoApi.addTodo({name});
 
         if(created) {
             todos.push(created);
